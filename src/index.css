@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@media print {
+    @page { size: A4 portrait; margin: 0; }
+    body { 
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important; 
+        background: white !important; 
+        width: 210mm; height: 297mm; 
+        margin: 0; padding: 0; 
+        display: block !important;
+    }
+    header, .print-hidden { display: none !important; }
+    #preview-view { padding: 0 !important; margin: 0 !important; display: block !important; background: white !important; width: 100% !important; height: auto !important; overflow: visible !important; }
+    #card-scaling-wrapper { display: block !important; transform: none !important; width: 100% !important; height: auto !important; margin: 0 !important; }
+    #page1-layout, #page2-layout { 
+        display: flex !important; 
+        flex-direction: row !important;
+        justify-content: center !important; 
+        gap: 40px !important; 
+        margin-top: 20mm !important; 
+        width: 100% !important;
+    }
+    #page1-layout { page-break-after: always !important; break-after: page !important; }
+    
+    /* Ensure the cards themselves have high quality borders in print */
+    #page1-layout > div, #page2-layout > div {
+        box-shadow: none !important;
+        border: 3px solid black !important;
+        print-color-adjust: exact !important;
+    }
+}
